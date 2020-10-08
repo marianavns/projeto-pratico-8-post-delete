@@ -3,7 +3,7 @@
 // 1. ONDE CHAMAMOS A BASE DE DADOS
 // 2. ONDE CONFIGURAMOS AS REQUISIÇÕES E RESPOSTAS BASEADAS NO BANCO DE DADOS
 
-// 1. Chamando a base de dados:
+// 1. Importando a base de dados:
     const books = require( '../model/books.json' )
     const collaborators = require( '../model/collaborators.json' )
 
