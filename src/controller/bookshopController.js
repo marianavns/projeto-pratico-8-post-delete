@@ -56,7 +56,7 @@ const getAgeByID = ( req, res ) => {
         const id = req.params.id
         const filtered = collaborators.find((param) => param.id == id)
         const name = filtered.name
-        const yearBirth = filtered.id.slice(3, -2)
+        const yearBirth = filtered.id.slice(4, -4)
     const age = actualYear - yearBirth
 res.status(200).send(`A pessoa com o id ${id} se chama ${name} e tem ${age} anos.`)
 }
