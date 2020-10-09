@@ -29,7 +29,7 @@ Funcionários:
 
 ✔️ 3. Nossa livraria gostaria de garantir que será possível a exclusão do registro de determinado livro.
 
-4. Eles também desejam que seja possível a exclusão do registro de um funcionário.
+✔️ 4. Eles também desejam que seja possível a exclusão do registro de um funcionário.
 
 ✔️ 5. Nossa contratante espera que seja possível o acesso a uma lista completa com todos os livros do estoque.
 
