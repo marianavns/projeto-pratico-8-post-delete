@@ -17,7 +17,7 @@ Livros:
 - Lançamento
 - Gênero
 
-2. A mesma livraria decidiu integrar um sisteminha em que será possível a adição de seus funcionários. A contratante espera que no sistema ela possa fazer a inclusão dos dados de cada um deles, contendo:
+✔️ 2. A mesma livraria decidiu integrar um sisteminha em que será possível a adição de seus funcionários. A contratante espera que no sistema ela possa fazer a inclusão dos dados de cada um deles, contendo:
 
 Funcionários:
 - Nome
