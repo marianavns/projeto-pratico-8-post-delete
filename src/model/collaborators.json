@@ -4,7 +4,7 @@
         "id": "121119901450",
         "sector": "Relacionamento com o Cliente",
         "occupation": "Atendente",
-        "work-schedule": "9:00 - 16:00",
+        "workschedule": "9:00 - 16:00",
         "inTraining": true
     },
     {
@@ -12,7 +12,7 @@
         "id": "121119853435",
         "sector": "Relacionamento com o Cliente",
         "occupation": "Atendente",
-        "work-schedule": "9:00 - 16:00",
+        "workschedule": "9:00 - 16:00",
         "inTraining": false 
     },
     {
@@ -20,7 +20,7 @@
         "id": "231119911490",
         "sector": "Relacionamento com o Cliente",
         "occupation": "Atendente",
-        "work-schedule": "16:00 - 23:00",
+        "workschedule": "16:00 - 23:00",
         "inTraining": false 
     },
     {
@@ -28,7 +28,7 @@
         "id": "231119960500",
         "sector": "Relacionamento com o Cliente",
         "occupation": "Atendente",
-        "work-schedule": "16:00 - 23:00",
+        "workschedule": "16:00 - 23:00",
         "inTraining": true
     },
     {
@@ -36,7 +36,7 @@
         "id": "233219889400",
         "sector": "Administração",
         "occupation": "Bibliotecária",
-        "work-schedule": "13:00 - 20:00",
+        "workschedule": "13:00 - 20:00",
         "inTraining": " "
     },
     {
@@ -44,7 +44,7 @@
         "id": "122219720456",
         "sector": "Manutenção e Limpeza",
         "occupation": "Auxiliar de Limpeza",
-        "work-schedule": "08:00 - 15:30",
+        "workschedule": "08:00 - 15:30",
         "inTraining": false 
     },
     {
@@ -52,7 +52,7 @@
         "id": "232219748700",
         "sector": "Manutenção e Limpeza",
         "occupation": "Auxiliar de Limpeza",
-        "work-schedule": "15:30 - 23:00",
+        "workschedule": "15:30 - 23:00",
         "inTraining": false 
     },
     {
@@ -60,7 +60,7 @@
         "id": "124319958450",
         "sector": "Recursos Humanos",
         "occupation": "Gerente",
-        "work-schedule": "10:00 - 18:00",
+        "workschedule": "10:00 - 18:00",
         "inTraining": false 
     },
     {
@@ -68,7 +68,7 @@
         "id": "1253197850",
         "sector": "Financeiro",
         "occupation": "Gerente",
-        "work-schedule": "10:00 - 18:00",
+        "workschedule": "10:00 - 18:00",
         "inTraining": false 
     },
     {
@@ -76,7 +76,7 @@
         "id": "12319951401",
         "sector": "Administração",
         "occupation": "Auxiliar Administrativo",
-        "work-schedule": "10:00 - 18:00",
+        "workschedule": "10:00 - 18:00",
         "inTraining": false 
     },
     {
@@ -84,7 +84,7 @@
         "id": "123319794467",
         "sector": "Administração",
         "occupation": "Gerente",
-        "work-schedule": "9:00 - 17:00",
+        "workschedule": "9:00 - 17:00",
         "inTraining": true 
     },
     {
@@ -92,7 +92,7 @@
         "id": "233319927455",
         "sector": "Administração",
         "occupation": "Gerente",
-        "work-schedule": "14:00 - 22:00",
+        "workschedule": "14:00 - 22:00",
         "inTraining": false 
     }
-]
+]  

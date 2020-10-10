@@ -10,15 +10,15 @@ const getAllBooks = ( req, res ) => {
 }
 
 const postBook = ( req, res ) => {
-    const {id, isbn, name, authorship, publishingCompany, release, genre} = req.body
-    books.push({id, isbn, name, authorship, publishingCompany, release, genre})
+    const {isbn, id, name, authorship, publishingCompany, release, genre} = req.body
+    books.push({id, isbn, id, name, authorship, publishingCompany, release, genre})
         fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
             if (err) {
                 return res.status(424).send({message: err});
             }
     console.log("O arquivo foi atualizado.")
             })    
-    res.status(200).send(books)
+    res.status(201).send(books)
 }
 
 const deleteBook = ( req, res ) => {
@@ -26,7 +26,7 @@ const deleteBook = ( req, res ) => {
     const filteredBook = books.find((element) => element.id == id)
     const index = books.indexOf(filteredBook)
     books.splice(index, 1)
-        fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
+        fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf-8', function(err){
             if (err) {
             return res.status(424).send({message: err});
             }
@@ -48,11 +48,17 @@ const getAllCollaborators = ( req, res ) => {
     res.status(200).send(collaborators)
 }
 
-        /*
-        const postCollaborator = ( req, res ) => {
-            res.status(200).send(collaboratorNewList)
-        }
-        */
+const postCollaborator = ( req, res ) => {
+    const {name, id, sector, occupation, workschedule, inTraining} = req.body
+    collaborators.push({name, id, sector, occupation, workschedule, inTraining})
+        fs.writeFile('./src/model/collaborators.json', JSON.stringify(collaborators), 'utf-8', function(err){
+            if (err) {
+                return res.status(424).send({message: err});
+            }
+    console.log("O arquivo foi atualizado!")
+            })    
+    res.status(201).send(collaborators)
+}
 
 const deleteCollaborator = ( req, res ) => {
     const id = req.params.id
@@ -85,7 +91,7 @@ module.exports = {
     deleteBook,
     // getBookByGenre,
     getAllCollaborators,
-    // postCollaborator,
+    postCollaborator,
     deleteCollaborator,
     getAgeByID
 }
