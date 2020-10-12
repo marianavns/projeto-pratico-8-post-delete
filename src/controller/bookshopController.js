@@ -1,99 +1,140 @@
 
-// CONTROLLER:
-// 1. ONDE CHAMAMOS A BASE DE DADOS
-// 2. ONDE CONFIGURAMOS AS REQUISIÇÕES E RESPOSTAS BASEADAS NO BANCO DE DADOS
+/* 
+O CONTROLLER É ONDE:
+1. CHAMAMOS A BASE DE DADOS;
+2. CRIAMOS CONSTANTES PARA DAR UMA RESPOSTA DE ACORDO COM A REQUISIÇÃO, ATRAVÉS DOS SEGUINTES PASSOS:
+    2.1. PEGAMOS AS INFORMAÇÕES DA REQUISIÇÃO NO CLIENTE;
+    2.2. TRABALHAMOS AS INFORMAÇÕES QUE VIERAM NA REQUISIÇÃO;
+    2.3. DEVOLVEMOS O QUE A USUÁRIA QUER.
+*/
 
-// 1. Importando a base de dados:
+/* 0. Importando os módulos necessários: */
+    const fs = require('fs')
+
+/* 1. CHAMAMOS A BASE DE DADOS: */
     const books = require( '../model/books.json' )
     const collaborators = require( '../model/collaborators.json' )
 
-        // Importando os módulos necessários:
-            const fs = require('fs')
 
-// 2. Configurando as requisições e respostas baseadas no banco de dados:
+/* 2. CRIAMOS CONSTANTES PARA DAR UMA RESPOSTA DE ACORDO COM A REQUISIÇÃO ATRAVÉS DOS SEGUINTES PASSOS:*/
+
+// =========>     MÉTODO GET     <=========
+
     const getAllBooks = ( req, res ) => {
+        // 2.1: Não há informações específicas.
+        // 2.2: Não há informações específicas.
+        // 2.3:
         res.status(200).send(books)
-    }
-
-    const postBook = ( req, res ) => {
-// Mostrando o que deve ser levado em consideração na requisição de inclusão vinda da usuária:
-            const {id, isbn, name, authorship, publishingCompany, release, genre} = req.body
-        ///////////// Verificando se o identificador já existe:
-        // Empurrando o novo objeto criado para o JSON inicial:
-            books.push({id, isbn, name, authorship, publishingCompany, release, genre})
-        // Reencrevendo o banco de dados com a atualização:
-            fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
-            if (err) {
-                return res.status(424).send({message: err});
-            }
-            console.log("O arquivo foi atualizado.")
-        })
-// Respondendo com o banco de dados atualizado:
-    res.status(200).send(books)
-    }
-
-    const deleteBook = ( req, res ) => {
-// Mostrando o que deve ser levado em consideração na requisição de exclusão vinda da usuária:
-            const id = req.param.id
-        // Encontrando o livro na const books pelo ID:
-            const filteredBook = books.filter((array) => array.id == id)
-        // Tirando livro encontrado da array:
-            const indexFilteredBook = books.indexOf(filteredBook)
-            books.splice(indexFilteredBook)
-        // Reencrevendo o banco de dados com a atualização:
-            fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
-                if (err) {
-                return res.status(424).send({message: err});
-                }
-                console.log("O arquivo foi atualizado.")
-            })
-//Respondendo com o banco de dados atualizado
-    res.status(200).send(books)
     }
 
     const getAllCollaborators = ( req, res ) => {
         res.status(200).send(collaborators)
     }
 
-    const postCollaborator = ( req, res ) => {
-        // Pegar o livro que a pessoa escreveu no postman
-        // Pegar a lista completa de livros
-        // Verificar se o identificador já existe
-        // Adicionar o livro no arquivo .json
-        // Retornar a lista nova
-        res.status(200).send(collaboratorNewList)
-    }
-
-    const deleteCollaborator = ( req, res ) => {
-        // Encontrar o colaborador na const collaborators
-        // Tirá-lo da array
-        // Reescrever a array
-        res.status(200).send(collaborators)
-    }
-
-    const getBookByGenre = ( req, res ) => {
-        // Encontrar os livros naquele gênero
-        // Guardar os livros numa variável
-        res.status(200).send(booksByGenre)
-    }
+    // const getBookByGenre = ( req, res ) => {
+    // }
 
     const getAgeByID = ( req, res ) => {
+        // 2.1: Pegamos as informações da requisição (aqui foi no browser):
+        const id = req.params.id
+        // 2.2: Trabalhamos as informações que vieram das requisições:
+        const filtered = collaborators.find((element) => element.id == id)
+        const yearBirth = filtered.id.slice(4, -4)
+        
+        const name = filtered.name
         const actualYear = 2020
-            const id = req.params.id
-            const filtered = collaborators.find((param) => param.id == id)
-            const name = filtered.name
-            const yearBirth = filtered.id.slice(3, -2)
         const age = actualYear - yearBirth
-    res.status(200).send(`A pessoa com o id ${id} se chama ${name} e tem ${age} anos.`)
+        // 2.3: Devolvemos o que a usuária quer: 
+        res.status(200).send(`A pessoa com o id ${id} se chama ${name} e tem ${age} anos.`)
     }
+
+
+// =========>     MÉTODO POST     <=========
+
+
+    const postBook = ( req, res ) => {
+
+        // 2.1: Pegamos as informações da requisição (aqui foi no body):
+        const {id, isbn, name, authorship, publishingCompany, release, genre} = req.body
+
+        // 2.2: Trabalhamos as informações que vieram das requisições:
+            // -empurrando as informações para o banco de dados
+            books.push({id, isbn, name, authorship, publishingCompany, release, genre})
+            // -reencrevendo o banco de dados com a atualização
+            fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
+                if (err) {return res.status(424).send( {message: err} )}
+            })
+
+        // 2.3: Devolvemos o que a usuária quer
+        res.status(200).send(books)
+    }
+
+
+    const postCollaborator = ( req, res ) => {
+
+        // 2.1: Pegamos as informações da requisição (aqui foi no body):
+        const {name, id, sector, occupation, workschedule, inTraining} = req.body
+
+        // 2.2: Trabalhamos as informações que vieram das requisições:
+        collaborators.push({name, id, sector, occupation, workschedule, inTraining})
+            fs.writeFile('./src/model/collaborators.json', JSON.stringify(collaborators), 'utf-8', function(err){
+                if (err) {return res.status(424).send( {message: err} )}
+            })
+        
+        // 2.3: Devolvemos o que a usuária quer
+        res.status(201).send(collaborators)
+    }
+
+
+// =========>     MÉTODO DELETE     <=========
+
+    const deleteBook = ( req, res ) => {
+
+        // 2.1: Pegamos as informações da requisição (aqui foi no browser):
+        const id = req.params.id
+        
+        // 2.2: Trabalhamos as informações que vieram das requisições:
+        // -buscando o objeto que possui a informação digitada no browser:
+            const filteredBook = books.filter((array) => array.id == id)
+            const indexFilteredBook = books.indexOf(filteredBook)
+        // -tirando este elemento:
+            books.splice(indexFilteredBook)
+        // -reescrevendo o banco de dados com a atualização:
+            fs.writeFile('./src/model/books.json', JSON.stringify(books), 'utf8', function(err){
+                if (err) {return res.status(424).send( {message: err} )}
+            })
+
+        // 2.3: Devolvemos o que a usuária quer
+        res.status(200).send(books)
+    }
+    
+    const deleteCollaborator = ( req, res ) => {
+        const id = req.params.id
+        const filtered = collaborators.find((element) => element.id == id)
+        const indexFiltered = collaborators.indexOf(filtered)
+        collaborators.splice(indexFiltered, 1)
+            fs.writeFile('./src/model/collaborators.json', JSON.stringify(collaborators), 'utf8', function(err){
+                if (err) {return res.status(424).send( {message: err} )}
+            })
+    res.status(200).send(collaborators)
+    }
+
 
 module.exports = { 
     getAllBooks,
-    postBook, 
-    deleteBook, 
     getAllCollaborators,
+    // getBookByGenre,
+    getAgeByID,
+
+    postBook, 
     postCollaborator,
+
+    deleteBook,
     deleteCollaborator,
-    getBookByGenre,
-    getAgeByID
+    
+    // putBook,
+    // putCollaborator,
+
+    // patchBook,
+    // patchCollaborator
 }
