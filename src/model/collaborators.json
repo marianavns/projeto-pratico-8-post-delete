@@ -1,1 +1,98 @@
-[{"name":"Marcela Soares de Barros","id":"121119901450","sector":"Relacionamento com o Cliente","occupation":"Atendente","workschedule":"9:00 - 16:00","inTraining":true},{"name":"Luiz Renato de Arruda","id":"121119853435","sector":"Relacionamento com o Cliente","occupation":"Atendente","workschedule":"9:00 - 16:00","inTraining":false},{"name":"Bernardo Vieira Silva","id":"231119960500","sector":"Relacionamento com o Cliente","occupation":"Atendente","workschedule":"16:00 - 23:00","inTraining":true},{"name":"Marilena Fontes Carlini","id":"233219889400","sector":"Administração","occupation":"Bibliotecária","workschedule":"13:00 - 20:00","inTraining":" "},{"name":"Fernando Souza Lima","id":"122219720456","sector":"Manutenção e Limpeza","occupation":"Auxiliar de Limpeza","workschedule":"08:00 - 15:30","inTraining":false},{"name":"Nádia Vieira Alves","id":"232219748700","sector":"Manutenção e Limpeza","occupation":"Auxiliar de Limpeza","workschedule":"15:30 - 23:00","inTraining":false},{"name":"Iasmin do Nascimento Souza","id":"124319958450","sector":"Recursos Humanos","occupation":"Gerente","workschedule":"10:00 - 18:00","inTraining":false},{"name":"Aparecida de Paula Ferreira Gomes","id":"1253197850","sector":"Financeiro","occupation":"Gerente","workschedule":"10:00 - 18:00","inTraining":false},{"name":"Sandra Matias Sampaio","id":"12319951401","sector":"Administração","occupation":"Auxiliar Administrativo","workschedule":"10:00 - 18:00","inTraining":false},{"name":"Hugo Pimentel Barcelos","id":"123319794467","sector":"Administração","occupation":"Gerente","workschedule":"9:00 - 17:00","inTraining":true},{"name":"Renata Maria França","id":"233319927455","sector":"Administração","occupation":"Gerente","workschedule":"14:00 - 22:00","inTraining":false},{"name":"Clarissa Ribeiro de Souza Silva","id":"231119911490","sector":"Relacionamento com o Cliente","occupation":"Atendente","workschedule":"16:00 - 23:00","inTraining":false}]
+[
+    {
+        "name": "Marcela Soares de Barros",
+        "id": "121119901450",
+        "sector": "Relacionamento com o Cliente",
+        "occupation": "Atendente",
+        "workschedule": "9:00 - 16:00",
+        "inTraining": true
+    },
+    {
+        "name": "Luiz Renato de Arruda",
+        "id": "121119853435",
+        "sector": "Relacionamento com o Cliente",
+        "occupation": "Atendente",
+        "workschedule": "9:00 - 16:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Clarissa Ribeiro de Souza Silva",
+        "id": "231119911490",
+        "sector": "Relacionamento com o Cliente",
+        "occupation": "Atendente",
+        "workschedule": "16:00 - 23:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Bernardo Vieira Silva",
+        "id": "231119960500",
+        "sector": "Relacionamento com o Cliente",
+        "occupation": "Atendente",
+        "workschedule": "16:00 - 23:00",
+        "inTraining": true
+    },
+    {
+        "name": "Marilena Fontes Carlini",
+        "id": "233219889400",
+        "sector": "Administração",
+        "occupation": "Bibliotecária",
+        "workschedule": "13:00 - 20:00",
+        "inTraining": " "
+    },
+    {
+        "name": "Fernando Souza Lima",
+        "id": "122219720456",
+        "sector": "Manutenção e Limpeza",
+        "occupation": "Auxiliar de Limpeza",
+        "workschedule": "08:00 - 15:30",
+        "inTraining": false 
+    },
+    {
+        "name": "Nádia Vieira Alves",
+        "id": "232219748700",
+        "sector": "Manutenção e Limpeza",
+        "occupation": "Auxiliar de Limpeza",
+        "workschedule": "15:30 - 23:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Iasmin do Nascimento Souza",
+        "id": "124319958450",
+        "sector": "Recursos Humanos",
+        "occupation": "Gerente",
+        "workschedule": "10:00 - 18:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Aparecida de Paula Ferreira Gomes",
+        "id": "1253197850",
+        "sector": "Financeiro",
+        "occupation": "Gerente",
+        "workschedule": "10:00 - 18:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Sandra Matias Sampaio",
+        "id": "12319951401",
+        "sector": "Administração",
+        "occupation": "Auxiliar Administrativo",
+        "workschedule": "10:00 - 18:00",
+        "inTraining": false 
+    },
+    {
+        "name": "Hugo Pimentel Barcelos",
+        "id": "123319794467",
+        "sector": "Administração",
+        "occupation": "Gerente",
+        "workschedule": "9:00 - 17:00",
+        "inTraining": true 
+    },
+    {
+        "name": "Renata Maria França",
+        "id": "233319927455",
+        "sector": "Administração",
+        "occupation": "Gerente",
+        "workschedule": "14:00 - 22:00",
+        "inTraining": false 
+    }
+]  
