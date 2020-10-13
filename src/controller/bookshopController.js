@@ -165,7 +165,7 @@ const patchBook = (req, res) => {
       
     // 2.2: Trabalhamos as informações que vieram das requisições:
     try {
-        // -buscando o(s) objeto(s) que possui(em) a informação digitada no browser
+        /// -buscando o(s) objeto(s) que possui(em) a informação digitada no browser
         const bookToUpdate =  books.find((element) => element.genre == genre);
                
         // -editando a chave digitada no body justamente no elemento selecionado pelo browser. Se a chave não existir, ela será adicionada.        
