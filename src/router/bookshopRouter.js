@@ -20,7 +20,8 @@
 
     router.delete('/excluirlivro/:id', controller.deleteBook) 
     router.delete('/excluircolaborador/:id', controller.deleteCollaborator)
-
+    
+    router.put('/putlivro/:id', controller.putBook)
     
 
 module.exports = router

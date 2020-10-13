@@ -119,6 +119,38 @@ O CONTROLLER É ONDE:
     res.status(200).send(collaborators)
     }
 
+// =========>     MÉTODO PUT     <=========
+
+const putBook = (req, res) => {
+    // 2.1: Pegamos as informações da requisição (aqui foi no browser e no body):
+    const id = req.params.id;
+    const bookAtualizado = req.body
+        
+    // 2.2: Trabalhamos as informações que vieram das requisições:
+    // (verificação adicional de erro. o programa funciona sem o try e o catch abaixo.)
+    try {
+        // -buscando o objeto que possui a informação digitada no browser
+        const bookParaAtualizar = books.find((element) => element.id == id)
+
+        // -tirando este elemento e colocando o elemento novo   
+        const index = books.indexOf(bookParaAtualizar)
+        books.splice(index, 1, bookAtualizado)
+
+        // -reescrevendo o banco de dados com a atualização:  
+        fs.writeFile("./src/model/books.json", JSON.stringify(books), "utf-8", function (err) {
+        if (err) { return res.status(424).send( {message: 'err1'} ) }
+        console.log("Arquivo atualizado com sucesso")
+        })
+
+    // 2.3: Devolvemos o que a usuária quer
+    res.status(200).send(books);
+    }
+        // (verificação adicional de erro. o programa funciona sem o catch e o try acima)
+        catch (err) {
+            return res.status(424).send({ message: 'err2' })
+        }
+}
+  
 
 module.exports = { 
     getAllBooks,
@@ -132,7 +164,7 @@ module.exports = {
     deleteBook,
     deleteCollaborator,
     
-    // putBook,
+    putBook,
     // putCollaborator,
 
     // patchBook,
