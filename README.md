@@ -1,3 +1,16 @@
+![Mulher segurando um lápis com o mesmo tamanho que ela e escrevendo um bloco de notas gigante. Um copo de café, também gigante, está ao lado](https://i.imgur.com/vw9T1Xv.png)
+# Anotação sobre o que faz cada método
+
+**GET**: Mostra registros em tela, seja o banco de dados completo ou uma informação específica. 
+
+**DELETE**: Apaga registros.
+
+**POST**: Adiciona um novo registro. Precisamos de um *body novinho*.
+
+**PUT**: Edita um registro já existente. Precisamos de um *body novinho* e achar o registro a ser editado -> por isso não dá para criar um novo registro com o PUT. 
+
+**CATCH**: 
+
 
 ![Loja de livros lilás. Um homem está no balcão olhando para o computador e uma mulher está com seus livros para comprar sobre o balcão.](https://i.imgur.com/1G71T1t.gif)
 
