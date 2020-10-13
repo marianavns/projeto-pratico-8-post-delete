@@ -1,4 +1,5 @@
-![Mulher segurando um lápis com o mesmo tamanho que ela e escrevendo um bloco de notas gigante. Um copo de café, também gigante, está ao lado](https://i.imgur.com/vw9T1Xv.png)
+<img src="https://i.imgur.com/vw9T1Xv.png" alt="Mulher segurando um lápis com o mesmo tamanho que ela e escrevendo um bloco de notas gigante. Um copo de café, também gigante, está ao lado" width="200"/>
+
 # Anotação sobre o que faz cada método
 
 **GET**: Mostra registros em tela, seja o banco de dados completo ou uma informação específica. 
