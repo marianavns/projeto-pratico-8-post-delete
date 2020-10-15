@@ -10,7 +10,7 @@
 
 **PUT**: Substitui um registro já existente. Precisamos de um *body novinho* e achar o registro a ser substituído -> por isso não dá para criar um novo registro com o PUT. 
 
-**CATCH**: Edita ou adiciona uma ou mais chaves em registros já existentes, podendo ser em um registro ou mais.
+**PATCH**: Edita ou adiciona uma ou mais chaves em registros já existentes, podendo ser em um registro ou mais.
 
 
 <img src="https://i.imgur.com/1G71T1t.gif" alt="Loja de livros lilás. Um homem está no balcão olhando para o computador e uma mulher está com seus livros para comprar sobre o balcão." width="350"/>
