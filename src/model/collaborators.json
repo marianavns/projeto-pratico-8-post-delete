@@ -37,7 +37,7 @@
         "sector": "Administração",
         "occupation": "Bibliotecária",
         "workschedule": "13:00 - 20:00",
-        "inTraining": " "
+        "inTraining": true
     },
     {
         "name": "Fernando Souza Lima",

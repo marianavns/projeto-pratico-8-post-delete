@@ -19,6 +19,7 @@ const getAllCollaborators = ( req, res ) => {
 //     console.log(IDs)
 //     res.status(200).send(IDs)
 // }
+
 const getAgeByID = ( req, res ) => {
         const id = req.params.id
         const filtered = collaborators.find((element) => element.id == id)
@@ -64,6 +65,7 @@ const postCollaborator = ( req, res ) => {
 // ==> DELETE
 
 const deleteBook = ( req, res ) => {
+    
     const id = req.params.id
     const filteredBook = books.find((element) => element.id == id)
     const index = books.indexOf(filteredBook)
@@ -96,17 +98,17 @@ res.status(200).send(collaborators)
 const putBook = (req, res) => {
 
     const id = req.params.id
-    const bookUpdated = req.body
+    const updatedBook = req.body
         
     try {
         const bookToUpdate = books.find(element => element.id == id)
         const index = books.indexOf(bookToUpdate)
 
-        books.splice(index, 1, bookUpdated)
+        books.splice(index, 1, updatedBook)
 
         fs.writeFile("./src/model/books.json", JSON.stringify(books), "utf-8", function (err) {
             if (err) { return res.status(424).send( {message: 'err1'} ) }
-        console.log(`O arquivo com o ID ${id} foi atualizado com sucesso.`)
+        console.log(`O livro com o ID ${id} foi atualizado com sucesso.`)
         })
 
     res.status(200).send(books)
@@ -116,41 +118,87 @@ const putBook = (req, res) => {
         }
 }
 
-// ==> PATCH
+const putCollaborator = (req, res) => {
 
-const patchBook = (req, res) => {
-
-    const genre = req.params.genre
-    const updateBook = req.body
-    
+    const id = req.params.id
+    const updatedCollaborator = req.body
+            
     try {
-        const bookToUpdate =  books.find(element => element.genre == genre)
+        const collaboratorToUpdate = collaborators.find(element => element.id == id)
+        const index = collaborators.indexOf(collaboratorToUpdate)
+        collaborators.splice(index, 1, updatedCollaborator)
 
-        Object.keys(updateBook).forEach(key => {
-            bookToUpdate[key] = updateBook[key]
+        fs.writeFile("./src/model/collaborators.json", JSON.stringify(collaborators), "utf-8", function (err) {
+            if (err) { return res.status(424).send( {message: 'err1'} ) }
+        console.log(`As informações da pessoa com o ID ${id} foram atualizadas com sucesso.`)
         })
-        console.log(bookToUpdate)
 
-        fs. writeFile("./src/model/books.json", JSON.stringify(books), "utf8", function(err){
-            if (err) {
-                return res.status(424).send({ message: "err1" }) }
-        console.log(`Os registros que contem ${genre} foram atualizados.`)
-        })
-    
-    return res.status(200).send(books)
-    } catch (err) {
-        return res.status(424).send({ message: `Não foi possível atualizar a chave` })
-      }
+    res.status(200).send(collaborators)
+    }
+        catch (err) {
+            return res.status(424).send({ message: 'O arquivo não pôde ser processado.' })
+        }
 }
 
 
+// ==> PATCH
+
+// const patchBook = (req, res) => {
+
+//     const genre = req.params.genre
+//     const atualizacao = req.body
+    
+//     try {
+//         const livrosParaAtualizar =  books.filter(element => element.genre == genre)
+//         console.log(livrosParaAtualizar)
+
+//         // Object.keys(updateBook).forEach(key => {
+//         //     bookToUpdate[key] = updateBook[key]
+//         // })
+//         // console.log(bookToUpdate)
+//         // console.log(updateBook)
+
+//         // fs. writeFile("./src/model/books.json", JSON.stringify(books), "utf8", function(err){
+//         //     if (err) {
+//         //         return res.status(424).send({ message: "err1" }) }
+//         // console.log(`Os registros que contem ${genre} foram atualizados.`)
+//         // })
+    
+//     return res.status(200).send(books)
+//     } catch (err) {
+//         return res.status(424).send({ message: `Não foi possível atualizar a chave` })
+//       }
+// }
 
 
+// const patchCollaborator = (req, res) => {
+
+//     const inTraning = req.params.inTraning
+//     const updateCollaborator = req.body
+    
+//     try {
+//         const collabsToUpdate =  collaborators.filter(element => element.inTraning == inTraning)
+//         
+        // Object.keys(updateCollaborator).forEach(key => {
+        //     collabsToUpdate[key] = updateCollaborator[key]
+        // })
+        
+        // fs. writeFile("./src/model/collaborators.json", JSON.stringify(collaborators), "utf8", function(err){
+        //     if (err) {
+        //         return res.status(424).send({ message: "err1" }) }
+        // console.log(`Os registros que contem ${inTraning} foram atualizados.`)
+        // })
+    
+//     return res.status(200).send(Collaborators)
+//     } catch (err) {
+//         return res.status(424).send({ message: `Não foi possível atualizar a chave` })
+//       }
+// }
 module.exports = { 
     getAllBooks,
     getAllCollaborators,
     // getBookByGenre,
-    getIDs,
+    // getIDs,
     getAgeByID,
     
     postBook,
@@ -160,8 +208,8 @@ module.exports = {
     deleteCollaborator,
 
     putBook,
-    // putCollaborator,
+    putCollaborator,
 
-    patchBook,
-    // patchBook
+    // patchBook,
+    // patchCollaborator
 }
