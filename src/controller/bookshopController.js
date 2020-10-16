@@ -13,6 +13,12 @@ const getAllCollaborators = ( req, res ) => {
     res.status(200).send(collaborators)
 }
 
+// const getIDs = (req, res) => {
+//     const IDs = []    
+//     IDs.push("teste")
+//     console.log(IDs)
+//     res.status(200).send(IDs)
+// }
 const getAgeByID = ( req, res ) => {
         const id = req.params.id
         const filtered = collaborators.find((element) => element.id == id)
@@ -143,9 +149,10 @@ const patchBook = (req, res) => {
 module.exports = { 
     getAllBooks,
     getAllCollaborators,
-    getAgeByID,
     // getBookByGenre,
-
+    getIDs,
+    getAgeByID,
+    
     postBook,
     postCollaborator,
 
