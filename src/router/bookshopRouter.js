@@ -1,18 +1,19 @@
-const controller = require('../controller/bookshopController')
-
 const express = require('express')
-
 const router = express.Router()
 
+const controller = require('../controller/bookshopController')
 
 router.get('/livros', controller.getAllBooks)
-router.post('/adicionarlivro', controller.postBook)
-router.delete('/excluirlivro/:id/', controller.deleteBook)
-// router.get('/livros/:genre', controller.getBookByGenre)
-
 router.get('/colaboradores', controller.getAllCollaborators)
-router.post('/adicionarcolaborador', controller.postCollaborator)
-router.delete('/excluircolaborador/:id', controller.deleteCollaborator)
+// router.get('/livros/:genre', controller.getBookByGenre)
 router.get('/colaborador/idade/:id', controller.getAgeByID)
+router.post('/adicionarlivro', controller.postBook)
+router.post('/adicionarcolaborador', controller.postCollaborator)
+router.delete('/excluirlivro/:id/', controller.deleteBook)
+router.delete('/excluircolaborador/:id', controller.deleteCollaborator)
+router.put('/editarlivro/:id/', controller.deleteBook)
+// router.put('/editarcolaborador/:id', controller.deleteCollaborator)
+router.patch('/atualizarlivros/:id/', controller.deleteBook)
+// router.patch('/atualizarcolaboradores/:id', controller.deleteCollaborator)
 
 module.exports = router
