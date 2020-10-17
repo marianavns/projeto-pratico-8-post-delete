@@ -14,7 +14,7 @@ router.delete('/excluirlivro/:id/', controller.deleteBook)
 router.delete('/excluircolaborador/:id', controller.deleteCollaborator)
 router.put('/editarlivro/:id/', controller.putBook)
 router.put('/editarcolaborador/:id', controller.putCollaborator)
-// router.patch('/atualizarlivros/:genre/', controller.patchBook)
-// router.patch('/atualizarcolaboradores/:id', controller.deleteCollaborator)
+router.patch('/atualizarlivros/:genre/', controller.patchBook)
+router.patch('/atualizarcolaboradores/:occupation', controller.patchCollaborator)
 
 module.exports = router

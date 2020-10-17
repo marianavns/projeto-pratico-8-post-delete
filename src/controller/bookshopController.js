@@ -97,18 +97,18 @@ res.status(200).send(collaborators)
 
 const putBook = (req, res) => {
 
-    const id = req.params.id
+    const name = req.params.name
     const updatedBook = req.body
         
     try {
-        const bookToUpdate = books.find(element => element.id == id)
+        const bookToUpdate = books.find(element => element.name == name)
         const index = books.indexOf(bookToUpdate)
 
         books.splice(index, 1, updatedBook)
 
         fs.writeFile("./src/model/books.json", JSON.stringify(books), "utf-8", function (err) {
             if (err) { return res.status(424).send( {message: 'err1'} ) }
-        console.log(`O livro com o ID ${id} foi atualizado com sucesso.`)
+        console.log(`O livro ${name} foi atualizado com sucesso.`)
         })
 
     res.status(200).send(books)
@@ -143,57 +143,59 @@ const putCollaborator = (req, res) => {
 
 // ==> PATCH
 
-// const patchBook = (req, res) => {
+const patchBook = (req, res) => {
 
-//     const genre = req.params.genre
-//     const atualizacao = req.body
+    const update = req.body
+    const genre = req.params.genre
     
-//     try {
-//         const livrosParaAtualizar =  books.filter(element => element.genre == genre)
-//         console.log(livrosParaAtualizar)
-
-//         // Object.keys(updateBook).forEach(key => {
-//         //     bookToUpdate[key] = updateBook[key]
-//         // })
-//         // console.log(bookToUpdate)
-//         // console.log(updateBook)
-
-//         // fs. writeFile("./src/model/books.json", JSON.stringify(books), "utf8", function(err){
-//         //     if (err) {
-//         //         return res.status(424).send({ message: "err1" }) }
-//         // console.log(`Os registros que contem ${genre} foram atualizados.`)
-//         // })
+    try {
+    const booksToUpdate =  books.filter(element => element.genre == genre)
+    booksToUpdate.map(objeto => {
+        Object.keys(update).forEach(key => {
+            objeto[key] = update[key]
+        })}
+    )
+        fs.writeFile("./src/model/books.json", JSON.stringify(books), "utf-8", function (err) {
+            if (err) { return res.status(424).send( {message: 'err1'} ) }
+        console.log(`As informações dos livros do gênero "${genre}" foram atualizadas com sucesso.`)
+        })
     
-//     return res.status(200).send(books)
-//     } catch (err) {
-//         return res.status(424).send({ message: `Não foi possível atualizar a chave` })
-//       }
-// }
+    return res.status(200).send(books)
+
+    } catch (err) {
+        return res.status(424).send({ message: `Não foi possível atualizar a chave` })
+      }
+}
 
 
-// const patchCollaborator = (req, res) => {
+const patchCollaborator = (req, res) => {
 
-//     const inTraning = req.params.inTraning
-//     const updateCollaborator = req.body
-    
-//     try {
-//         const collabsToUpdate =  collaborators.filter(element => element.inTraning == inTraning)
-//         
-        // Object.keys(updateCollaborator).forEach(key => {
-        //     collabsToUpdate[key] = updateCollaborator[key]
-        // })
+    const occupation = req.params.occupation
+    console.log(occupation)
+    const update = req.body
+    console.log(update)
+
+     try {
+        const collabsToUpdate = collaborators.filter(element => element.occupation == occupation)
+        collabsToUpdate.map(objeto => {
+            Object.keys(update).forEach(key => {
+                objeto[key] = update[key]
+            })}
+        )
         
-        // fs. writeFile("./src/model/collaborators.json", JSON.stringify(collaborators), "utf8", function(err){
-        //     if (err) {
-        //         return res.status(424).send({ message: "err1" }) }
-        // console.log(`Os registros que contem ${inTraning} foram atualizados.`)
-        // })
+        fs. writeFile("./src/model/collaborators.json", JSON.stringify(collaborators), "utf-8", function(err){
+            if (err) {
+                return res.status(424).send({ message: "err1" }) }
+        console.log(`Os registros que contem ${occupation} foram atualizados.`)
+        })
     
-//     return res.status(200).send(Collaborators)
-//     } catch (err) {
-//         return res.status(424).send({ message: `Não foi possível atualizar a chave` })
-//       }
-// }
+    return res.status(200).send(collaborators)
+
+    } catch (err) {
+        return res.status(424).send({ message: `Não foi possível atualizar a chave` })
+      }
+}
+
 module.exports = { 
     getAllBooks,
     getAllCollaborators,
@@ -210,6 +212,6 @@ module.exports = {
     putBook,
     putCollaborator,
 
-    // patchBook,
-    // patchCollaborator
+    patchBook,
+    patchCollaborator
 }
