@@ -47,8 +47,8 @@ Funcionários:
 
 ✔️ 2. Para os livros, crie um método em que será possível a atualização do campo Nome utilizando o método HTTP PATCH.
 
-3. Para os funcionários, crie um método em que será possível a atualização do campo Nome utilizando o método HTTP PUT.
+✔️ 3. Para os funcionários, crie um método em que será possível a atualização do campo Nome utilizando o método HTTP PUT.
 
-4. Para os funcionários, crie um método em que será possível a atualização do campo Nome utilizando o método HTTP PATCH.
+✔️ 4. Para os funcionários, crie um método em que será possível a atualização do campo Nome utilizando o método HTTP PATCH.
 
 Observação: Popule nosso model de livros e funcionários com pelo menos 10 registros em cada.
